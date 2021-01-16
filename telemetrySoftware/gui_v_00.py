@@ -99,11 +99,14 @@ global rawData
 rawData = ""
 #programa que comprueba si se han recibido nuevos datos
 def comprobar():
-    global rawData
-    txt = (end_serial.readline()).decode()
-    if txt != rawData:
-        rawData = txt
-        escribir(rawData)
+    global rawData    
+    print("inicio")
+    if end_serial.in_waiting > 0:
+        print("entra if")
+        txt = (end_serial.readline())
+        print("txt recibe")
+        escribir(txt.decode())
+
 #creo el boton para enviar datos
 recibirBoton = Button(raiz, text = "Recbir", command = lambda:comprobar())
 recibirBoton.grid(row = 1, column = 1, padx = 10, pady = 10)
