@@ -1,6 +1,8 @@
 from tkinter import *
 import tkinter.scrolledtext as scrolledtext
 import serial
+import time
+import threading
 
 #coord_serial = serial.Serial(port='COM4', baudrate=9600, bytesize=8, parity='N', stopbits=1)
 end_serial = serial.Serial(port='COM6', baudrate=9600, bytesize=8, parity='N', stopbits=1)
@@ -88,31 +90,63 @@ datosTexto.grid(row = 1, column = 0, padx = 10, pady = 10)
 
 #programa que escribe los datos recibidos por pantalla
 def escribir(rData):
+    #se separa la información recibida
     cadena = rData.split(sep = ',')
     velAct.set(cadena[0])
-    velMax.set(cadena[1])
-    estadoAct.set(cadena[2])
+    if cadena[0] > velMax.get():
+        velMax.set(cadena[0])
+    estadoAct.set(cadena[1])
     datosTexto.insert('1.0', rData)
 
-#creo una variable para guardar datos
-global rawData
-rawData = ""
+#creo una variable que indicará si el xbee debe seguir buscando informacion o no
+global sigue
+sigue = True
 #programa que comprueba si se han recibido nuevos datos
 def comprobar():
-    global rawData    
-    print("inicio")
+    global sigue
+    #datosTexto.insert('1.0', "comprobando datos\n")
+    #el programa espera a que el xbee reciba informacion
     if end_serial.in_waiting > 0:
-        print("entra if")
-        txt = (end_serial.readline())
-        print("txt recibe")
+        datosTexto.insert('1.0', "leyendo datos\n")
+        #se lee la informacion y se guarda en una variable
+        txt = end_serial.readline()
         escribir(txt.decode())
+    if sigue == True:
+        #se vuelve a llamar al programa si no se ha pedido que pare
+        raiz.after(10, comprobar)
+    else:
+        datosTexto.insert('1.0', "recepcion de datos finalizada\n")
+
+#funcion que activa el boton recibir que provoca que se empiecen a recibir datos
+def continuar():
+    global sigue
+    sigue = True
+    #limpiamos el buffer del xbee
+    end_serial.reset_input_buffer()
+    comprobar()
+
+#funcion que activa el boton parar que provoca que se deje de buscar informacion
+def parar():
+    global sigue
+    sigue = False
+
+
+#creacion de un frame para organizar botones
+botones = Frame(raiz)
+botones.grid(row = 1, column = 1)
+botones.config(bg = "black")
+botones.config(bd = 15)
+botones.config(relief = "sunken")
 
 #creo el boton para enviar datos
-recibirBoton = Button(raiz, text = "Recbir", command = lambda:comprobar())
-recibirBoton.grid(row = 1, column = 1, padx = 10, pady = 10)
+recibirBoton = Button(botones, text = "Recbir", command = lambda:continuar())
+recibirBoton.grid(row = 0, column = 0, padx = 10, pady = 10)
 recibirBoton.config(cursor = "hand2")
 
-
+#creo el boton para cancelar el recibo de datos
+pararBoton = Button(botones, text = "Parar", command = lambda:parar())
+pararBoton.grid(row = 0, column = 1, padx = 10, pady = 10)
+pararBoton.config(cursor = "hand2")
 
 #necesario para que la ventana esté siempre activa
 raiz.mainloop()
