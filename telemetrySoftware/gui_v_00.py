@@ -5,7 +5,7 @@ import time
 import threading
 
 #coord_serial = serial.Serial(port='COM4', baudrate=9600, bytesize=8, parity='N', stopbits=1)
-end_serial = serial.Serial(port='COM6', baudrate=9600, bytesize=8, parity='N', stopbits=1)
+#end_serial = serial.Serial(port='COM6', baudrate=9600, bytesize=8, parity='N', stopbits=1)
 #----------RAIZ----------#
 
 #creo una ventana llamada raiz
