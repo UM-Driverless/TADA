@@ -3,6 +3,7 @@ import tkinter.scrolledtext as scrolledtext
 import serial
 import time
 import threading
+import plotly.graph_objects as go
 
 #coord_serial = serial.Serial(port='COM4', baudrate=9600, bytesize=8, parity='N', stopbits=1)
 #end_serial = serial.Serial(port='COM6', baudrate=9600, bytesize=8, parity='N', stopbits=1)
@@ -52,12 +53,22 @@ velActCuadro = Entry(velocidad, textvariable = velAct)
 velActCuadro.grid(row = 1, column = 0, padx = 10, pady = 10)
 velActCuadro.config(justify = "right")
 
-velMaxLabel = Label(velocidad, text = "Velocidad maxima", fg = "White", bg = "black", font =("Calibri", 14))
-velMaxLabel.grid(row = 0, column = 1)
-velMax = StringVar()
-velMaxCuadro = Entry(velocidad, textvariable = velMax)
-velMaxCuadro.grid(row = 1, column = 1, padx = 10, pady = 10)
-velMaxCuadro.config(justify = "right")
+#Ejemplo a programar
+fig = go.Figure(go.Indicator(
+    mode = "gauge+number",
+    value = 270,
+    domain = {'x': [0, 1], 'y': [0, 1]},
+    title = {'text': "Speed"}))
+
+fig.show()
+
+
+#velMaxLabel = Label(velocidad, text = "Velocidad maxima", fg = "White", bg = "black", font =("Calibri", 14))
+#velMaxLabel.grid(row = 0, column = 1)
+#velMax = StringVar()
+#velMaxCuadro = Entry(velocidad, textvariable = velMax)
+#velMaxCuadro.grid(row = 1, column = 1, padx = 10, pady = 10)
+#velMaxCuadro.config(justify = "right")
 
 #ahora creo el frame del estado del DV, con sus accesorios
 estado = Frame(raiz)
