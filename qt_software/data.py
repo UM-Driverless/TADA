@@ -1,5 +1,8 @@
-import serial
-end_serial = serial.Serial(port='COM6', baudrate=9600, bytesize=8, parity='N', stopbits=1)
+from variables import *
+
+import sender
+end_serial = sender.Serial(port='COM6', baudrate=9600, bytesize=8, parity='N', stopbits=1)
+
 
 global data
 data = []
@@ -8,8 +11,8 @@ data = []
 def escribir(rData):
     #se separa la información recibida
     cadena = rData.split(sep = ' ')
-    data[0].set(cadena[0])
-    data[1].set(cadena[1])
+    vState.set(cadena[0])
+    vSpeed.set(cadena[1])
     return data
 
 #creo una variable que indicará si el xbee debe seguir buscando informacion o no

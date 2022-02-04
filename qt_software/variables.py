@@ -1,1 +1,2 @@
-velocidad = 0
+vSpeed = 0
+vState = 0
