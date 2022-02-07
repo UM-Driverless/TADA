@@ -1,10 +1,10 @@
-import sender
+import serial
 import random
 import time
 
 def envioDatos():
     #se inicia la comunicación con el xbee emisor
-    coord_serial = sender.Serial(port='COM4', baudrate=9600, bytesize=8, parity='N', stopbits=1)
+    coord_serial = serial.Serial(port='COM4', baudrate=9600, bytesize=8, parity='N', stopbits=1)
     i=10000
     #bucle que envía datos aleatorios
     while i > 0:

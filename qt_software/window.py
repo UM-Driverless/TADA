@@ -25,7 +25,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             i = 0
             while(1):
                 self.speed.setValue(vState)
-                self.status.setText(vSpeed)
+                self.status.setText(str(vSpeed))
                 sleep(1)
                 i = i + 1
 
@@ -35,8 +35,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         thread.start()
 
         #thread para enviar datos
-        thread2 = Thread(target = envioDatos)
-        thread2.start()
+        #thread2 = Thread(target = envioDatos)
+        #thread2.start()
 
         #thread para recibir datos
         thread3 = Thread(target = comprobar)
@@ -48,7 +48,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     #actualizamos el texto de la etiqueta
     def actualizar(self):
-        self.label.setText("¡Acabas de hacer clic en el botón!")
+        self.status.setText("¡Acabas de hacer clic en el botón!")
 
     
 
