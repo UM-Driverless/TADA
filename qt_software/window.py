@@ -24,8 +24,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         def datosPantalla():
             i = 0
             while(1):
-                self.speed.setValue(vState)
-                self.status.setText(str(vSpeed))
+                self.speed.setValue(vSpeed)
+                self.status.setText(str(vState))
                 sleep(1)
                 i = i + 1
 
