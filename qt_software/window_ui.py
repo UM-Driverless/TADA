@@ -21,14 +21,12 @@ class Ui_MainWindow(object):
         self.status.setGeometry(QtCore.QRect(30, 30, 211, 20))
         self.status.setAlignment(QtCore.Qt.AlignCenter)
         self.status.setObjectName("status")
-        self.speed = QtWidgets.QProgressBar(self.centralwidget)
-        self.speed.setGeometry(QtCore.QRect(250, 60, 118, 23))
-        self.speed.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.speed.setAutoFillBackground(False)
-        self.speed.setProperty("value", 24)
-        self.speed.setOrientation(QtCore.Qt.Horizontal)
-        self.speed.setTextDirection(QtWidgets.QProgressBar.TopToBottom)
+        self.speed = QtWidgets.QLCDNumber(self.centralwidget)
+        self.speed.setGeometry(QtCore.QRect(240, 60, 64, 23))
         self.speed.setObjectName("speed")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(310, 66, 55, 20))
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 26))
@@ -46,7 +44,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "PushButton"))
         self.status.setText(_translate("MainWindow", "TextLabel"))
-        self.speed.setFormat(_translate("MainWindow", "%p km/h"))
+        self.label.setText(_translate("MainWindow", "Km/h"))
 
 
 if __name__ == "__main__":

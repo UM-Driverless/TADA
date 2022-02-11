@@ -43,32 +43,27 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QProgressBar" name="speed">
+   <widget class="QLCDNumber" name="speed">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>240</x>
       <y>60</y>
-      <width>118</width>
+      <width>64</width>
       <height>23</height>
      </rect>
     </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>66</y>
+      <width>55</width>
+      <height>20</height>
+     </rect>
     </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="value">
-     <number>24</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-    <property name="textDirection">
-     <enum>QProgressBar::TopToBottom</enum>
-    </property>
-    <property name="format">
-     <string>%p km/h</string>
+    <property name="text">
+     <string>Km/h</string>
     </property>
    </widget>
   </widget>
