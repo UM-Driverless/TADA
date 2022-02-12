@@ -1,4 +1,4 @@
 all from anaconda terminal.
 Open designer: designer
-Transform/update design to .py: pyuic5 -x name.ui -o name_ui.py
+Transform/update design to .py: pyuic5 -x window.ui -o window_ui.py
 execute script: python ventana_ui.py

@@ -29,6 +29,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 sleep(1)
                 i = i + 1
 
+                #pack1:
+                self.lcdRpm.setValue(rpm)
+                self.lcdEct.setValue(ect)
+                self.lcdOilP.setValue(oilP)
+                self.lcdTps.setValue(tps)
+                self.lcdApps.setValue(apps)
+                self.lcdBreakHdr.setValue(breakHdr)
+
+
 
         #thread para mostrar datos por pantalla
         thread = Thread(target = datosPantalla)

@@ -26,13 +26,13 @@ class varPack1:
         global rpm
         rpm = var
 
-    def modifyOilP(var):
-        global rpm
-        rpm = var
-
     def modifyEct(var):
         global ect
         ect = var
+
+    def modifyOilP(var):
+        global oilP
+        oilP = var
 
     def modifyTps(var):
         global tps
@@ -45,6 +45,8 @@ class varPack1:
     def modifyBreakHdr(var):
         global breakHdr
         breakHdr = var
+
+    
 
 
 
