@@ -1,4 +1,4 @@
-from variables import varPack1
+from variables import varPack1, varPack2
 
 
 def pack1 (pack):
@@ -8,3 +8,6 @@ def pack1 (pack):
     varPack1.modifyTps(pack[5])
     varPack1.modifyApps(pack[6])
     varPack1.modifyBreakHdr(pack[7])
+
+def pack2 (pack):
+    varPack2.modifyDvState(pack[0])

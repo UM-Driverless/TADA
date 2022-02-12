@@ -1,5 +1,4 @@
 vSpeed = 0
-vState = 0
 
 vComprobar = 0
 
@@ -46,15 +45,15 @@ class varPack1:
         global breakHdr
         breakHdr = var
 
-    
+dvState = 0
 
+class varPack2:
+    id = 2
 
+    def modifyDvState(var):
+        global dvState
+        dvState = var
 
-
-
-
-
-#pack2
 #pack3
 #pack4
 #pack5

@@ -3,7 +3,7 @@ from window_ui import *
 #importamos los archivos
 from variables import *
 from sender import *
-from data import *
+from pruebaRecibir import *
 #importamos los threads
 from threading import Thread
 from time import sleep
@@ -25,7 +25,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             i = 0
             while(1):
                 self.speed.setValue(vSpeed)
-                self.status.setText(str(vState))
                 sleep(1)
                 i = i + 1
 
@@ -36,6 +35,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.lcdTps.setValue(tps)
                 self.lcdApps.setValue(apps)
                 self.lcdBreakHdr.setValue(breakHdr)
+
+                #pack2:
+                self.status.setText(str(dvState))
 
 
 
