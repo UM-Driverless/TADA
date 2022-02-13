@@ -1,15 +1,15 @@
-vSpeed = 0
+
 
 vComprobar = 0
 
 arrayDatos = []
 datosRecibidos = 0
 
-datoActual = 0
 
 
-SOF = 0000
-EOF = 1111
+
+SOF = '8'
+EOF = '8'
 
 rpm = 0
 ect = 0
@@ -19,8 +19,8 @@ apps = 0
 breakHdr = 0
 
 class varPack1:
-    id = 1
-
+    id = '1'
+    
     def modifyRpm(var):
         global rpm
         rpm = var
@@ -48,7 +48,7 @@ class varPack1:
 dvState = 0
 
 class varPack2:
-    id = 2
+    id = '2'
 
     def modifyDvState(var):
         global dvState
