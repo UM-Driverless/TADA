@@ -1,12 +1,12 @@
-import serial
+
 
 vComprobar = 0
 
 arrayDatos = []
 datosRecibidos = 0
-end_serial = serial.Serial(port='COM3', baudrate=9600, bytesize=8, parity='N', stopbits=1)
 
-primeraVez = 0
+
+
 
 SOF = '8'
 EOF = '8'
