@@ -16,10 +16,10 @@ def datosPantalla(self):
 
         global arrayDatos
         i = 0
-        print("serial: ",end_serial.in_waiting)
         while(end_serial.in_waiting > 0 and i < 12)  :
             #se lee la informacion y se guarda en una variable
             arrayDatos.append(end_serial.read().decode())
+            print("Nuevo dato: ",arrayDatos)
             i += 1
 
     
@@ -28,30 +28,31 @@ def datosPantalla(self):
         datoActual = 0
 
         while (len(arrayDatos) != 0):
-            print("array > 0")
-            print(arrayDatos[0])
+            print("Array while: ", arrayDatos)
             if (arrayDatos[0] == SOF and datoActual == 0):
                 print("deco SOF")
                 datoActual = 1
+
                 arrayDatos.pop(0)
             elif (arrayDatos[0] == varPack1.id and datoActual == 1 and len(arrayDatos) > 10):
                 if (arrayDatos[10] == EOF):
                     print("pack1 SOF")
                     pack = arrayDatos[1:9]
-                    rpm = int(str(pack[0])+str(pack[1]))
+                    rpm = int(str(pack[1])+str(pack[0]))
                     ect = int(str(pack[2])+str(pack[3]))
                     oilP = int(pack[4])
                     tps = int(pack[5])
                     apps = int(pack[6])
                     breakHdr = int (pack[7])
-                    datoActual = 0
-                for i in range(10):
-                    arrayDatos.pop(0)
-            else:
+                    for i in range(10):
+                        arrayDatos.pop(0)         
                 arrayDatos.pop(0)
+                datoActual = 0
+            elif (len(arrayDatos) > 12):
+                datoActual = 0
+                arrayDatos.pop(0)
+            else: break
 
-
-        print(rpm)
 
         self.lcdRpm.display(rpm)
         self.lcdEct.display(ect)
@@ -59,3 +60,5 @@ def datosPantalla(self):
         self.lcdTps.display(tps)
         self.lcdApps.display(apps)
         self.lcdBreakHdr.display(breakHdr)
+
+#ascii -> hexa -> dec
