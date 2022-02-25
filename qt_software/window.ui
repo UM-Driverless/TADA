@@ -353,7 +353,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLCDNumber" name="airrTempoO">
+    <widget class="QLCDNumber" name="airTempO">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -546,7 +546,7 @@
       <string/>
      </property>
     </widget>
-    <widget class="QLCDNumber" name="AnguloObjetivoO">
+    <widget class="QLCDNumber" name="anguloObjetivoO">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -666,7 +666,7 @@
      <rect>
       <x>20</x>
       <y>320</y>
-      <width>221</width>
+      <width>231</width>
       <height>181</height>
      </rect>
     </property>
@@ -676,7 +676,7 @@
     <widget class="QLCDNumber" name="frenoActualO">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>100</x>
        <y>30</y>
        <width>64</width>
        <height>23</height>
@@ -686,7 +686,7 @@
     <widget class="QLCDNumber" name="frenoObjetivoO">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>100</x>
        <y>70</y>
        <width>64</width>
        <height>23</height>
@@ -696,7 +696,7 @@
     <widget class="QLCDNumber" name="motorActualO">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>100</x>
        <y>110</y>
        <width>64</width>
        <height>23</height>
@@ -719,7 +719,7 @@
     <widget class="QLCDNumber" name="motorObjetivoO">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>100</x>
        <y>150</y>
        <width>64</width>
        <height>23</height>
@@ -742,7 +742,7 @@
     <widget class="QLabel" name="label_58">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>180</x>
        <y>30</y>
        <width>55</width>
        <height>21</height>
@@ -768,7 +768,7 @@
     <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>180</x>
        <y>110</y>
        <width>55</width>
        <height>21</height>
@@ -794,7 +794,7 @@
     <widget class="QLabel" name="label_13">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>180</x>
        <y>150</y>
        <width>55</width>
        <height>21</height>
@@ -833,7 +833,7 @@
     <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>180</x>
        <y>70</y>
        <width>55</width>
        <height>21</height>

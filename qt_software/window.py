@@ -14,12 +14,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
         QtWidgets.QMainWindow.__init__(self, *args, **kwargs)
         self.setupUi(self)
-        #cambiamos el texto del botón y de la etiqueta
-        self.status.setText("Haz clic en el botón")
-        self.pushButton.setText("Presióname")
         
     def actualizar(self):
-        self.status.setText("¡Acabas de hacer clic en el botón!")
         datosPantalla(self)
         #en esta funcion se recolectaran los datos de los xbee
     
