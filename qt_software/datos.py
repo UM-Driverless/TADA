@@ -2,6 +2,7 @@ from variables import *
 from time import sleep
 def datosPantalla(self):
         global primeraVez
+        global datoActual
         if (primeraVez == 0):
             end_serial.reset_input_buffer()
             primeraVez = 1
@@ -9,23 +10,23 @@ def datosPantalla(self):
         i = 0
         while(end_serial.in_waiting > 0 and i < 12)  :
             #se lee la informacion y se guarda en una variable
-            arrayDatos.append(end_serial.read()) #valores llegan en ascii
+            arrayDatos.append((end_serial.read()).decode()) #valores llegan en ascii
             print("Nuevo dato: ", arrayDatos)
             i += 1
 
-        datoActual = 0
-
         while (len(arrayDatos) != 0):
-            print("Array while: ", arrayDatos) 
+            print("Array while: ", arrayDatos, "len: ", len(arrayDatos)) 
 
             if (arrayDatos[0] == SOF and datoActual == 0):
                 print("deco SOF")
+                print("len: ", len(arrayDatos))
                 datoActual = 1
                 arrayDatos.pop(0)
 
-            if(datoActual == 1 and len(arrayDatos) > 10):
+            elif(datoActual == 1 and len(arrayDatos) > 10):
+                print ("packs")
                 if (arrayDatos[10] == EOF):
-                    
+                    print("deco EOF")
                     if (arrayDatos[0] == varPack1):
                         print("pack1")
                         paquete(self, arrayDatos[1:9], 1) 
@@ -54,7 +55,7 @@ def datosPantalla(self):
                         print("pack7")
                         paquete(self, arrayDatos[1:9], 7)
                         
-                    for i in range(10):
+                    for i in range(11):
                             arrayDatos.pop(0)  
                     
 
@@ -72,14 +73,22 @@ def datosPantalla(self):
 
 def paquete(self, pack, n):
     
-    for i in range(8):
-        pack[i] = pack[i].decode()
+    # for i in range(8):
+
+    #     a = ord(pack[i])
+    #     print(a)
+    #     if (a >= 65):
+    #         pack[i] = hex(a - 55)
+    #     else:
+    #         pack[i] = hex(a - 48)
+
+
 
     if(n == 1):
 
-        rpm = int(pack[3] + pack[2] + pack[1] + pack[0])
-        ect = int(pack[5] + pack[4])
-        lambd4 = int(pack[7] + pack[6])
+        rpm = int(pack[3] + pack[2] + pack[1] + pack[0], 16)
+        ect = int(pack[5] + pack[4], 16)
+        lambd4 = int(pack[7] + pack[6], 16)
 
         self.rpmO.display(rpm)
         self.ectO.display(ect)
