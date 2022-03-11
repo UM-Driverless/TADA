@@ -22,7 +22,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 #bucle de la ventana
 if __name__ == "__main__":
-
+    
     app = QtWidgets.QApplication([])
     window = MainWindow()
     window.show()
