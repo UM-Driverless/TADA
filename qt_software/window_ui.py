@@ -330,6 +330,13 @@ class Ui_MainWindow(object):
         self.label_31 = QtWidgets.QLabel(self.pack1_7)
         self.label_31.setGeometry(QtCore.QRect(20, 70, 55, 21))
         self.label_31.setObjectName("label_31")
+        self.portO = QtWidgets.QLineEdit(self.centralwidget)
+        self.portO.setEnabled(False)
+        self.portO.setGeometry(QtCore.QRect(30, 560, 111, 31))
+        self.portO.setObjectName("portO")
+        self.okO = QtWidgets.QPushButton(self.centralwidget)
+        self.okO.setGeometry(QtCore.QRect(160, 560, 91, 31))
+        self.okO.setObjectName("okO")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1102, 26))
@@ -389,6 +396,7 @@ class Ui_MainWindow(object):
         self.pack1_7.setTitle(_translate("MainWindow", "Paquete 7"))
         self.label_29.setText(_translate("MainWindow", "Asms"))
         self.label_31.setText(_translate("MainWindow", "GoSignal"))
+        self.okO.setText(_translate("MainWindow", "iniciar"))
 
 
 if __name__ == "__main__":

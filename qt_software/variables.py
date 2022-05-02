@@ -4,7 +4,12 @@ vComprobar = 0
 datoActual = 0
 arrayDatos = []
 datosRecibidos = 0
-end_serial = serial.Serial(port='COM3', baudrate=9600, bytesize=8, parity='N', stopbits=1)
+puerto = 'COM3'
+
+end_serial = serial.Serial
+
+
+continuar = 0
 
 primeraVez = 0
 

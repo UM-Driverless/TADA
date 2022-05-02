@@ -158,7 +158,7 @@ def paquete(self, pack, n):
         self.missionSelectedO.display(missionSelected)
         self.steeringStateO.display(steeringState)
         self.breakStateO.display(breakState)
-        self.lapCounter.display(lapCounter)
+        self.lapCounterO.display(lapCounter)
         self.conosActualesO.display(conosActuales)
     
     elif(n == 7):
