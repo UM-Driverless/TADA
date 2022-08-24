@@ -1,63 +1,58 @@
-import serial
 
-vComprobar = 0
-datoActual = 0
-arrayDatos = []
-datosRecibidos = 0
-puerto = 'COM3'
+class Variables():
+    def __init__(self):
+        self.vComprobar = 0
+        self.datoActual = 0
+        self.arrayDatos = []
+        self.datosRecibidos = 0
+        self.puerto = 'COM3'
+        self.continuar = 0
+        self.primeraVez = 0
 
-end_serial = serial.Serial
+        self.SOF = '\x01'
+        self.EOF = '\x04'
 
+        #pack1:
+        self.varPack1 = '\x01'
+        self.rpm = 0
+        self.ect = 0
+        self.lambd4 = 0
 
-continuar = 0
+        self.varPack2 = '\x02'
+        self.map = 0
+        self.fuelPressure = 0
+        self.tps = 0
+        self.apps = 0
 
-primeraVez = 0
+        self.varPack3 = '\x03'
+        self.batteryVoltage = 0
+        self.breakPreassure = 0
+        self.airTemp = 0
+        self.OilPreassure = 0
 
-SOF = '\x01'
-EOF = '\x04'
+        self.varPack4 = '\x04'
+        self.velocidadActual = 0
+        self.velocidadObjetivo = 0
+        self.anguloActual = 0
+        self.anguloObjetivo = 0
 
-#pack1:
-varPack1 = '\x01'
-rpm = 0
-ect = 0
-lambd4 = 0
+        self.varPack5 = '\x05'
+        self.frenoActual = 0
+        self.frenoObjetivo = 0
+        self.motorActual = 0
+        self.motorObjetivo = 0
 
-varPack2 = '\x02'
-map = 0
-fuelPressure = 0
-tps = 0
-apps = 0
+        self.varPack6 = '\x06'
+        self.asState = 0
+        self.ebsState = 0
+        self.missionSelected = 0
+        self.steeringState = 0
+        self.breakState = 0
+        self.lapCounter = 0
+        self.conosActuales = 0
 
-varPack3 = '\x03'
-batteryVoltage = 0
-breakPreassure = 0
-airTemp = 0
-OilPreassure = 0
+        self.varPack7 = '\x07'
+        self.asms = 0
+        self.goSignal = 0
 
-varPack4 = '\x04'
-velocidadActual = 0
-velocidadObjetivo = 0
-anguloActual = 0
-anguloObjetivo = 0
-
-varPack5 = '\x05'
-frenoActual = 0
-frenoObjetivo = 0
-motorActual = 0
-motorObjetivo = 0
-
-varPack6 = '\x06'
-asState = 0
-ebsState = 0
-missionSelected = 0
-steeringState = 0
-breakState = 0
-lapCounter = 0
-conosActuales = 0
-
-varPack7 = '\x07'
-asms = 0
-goSignal = 0
-
-
-funcionError = 0
+        self.funcionError = 0
